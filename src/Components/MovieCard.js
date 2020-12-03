@@ -17,8 +17,10 @@ class MovieCard extends React.Component{
 
     render() {
         return (
-            <div className="movie-card" onClick={this.rentMeClickHandler}>
-                <h2>{this.props.movie.title}</h2>
+            <div className="movie-card" >
+                <h2 onClick={this.rentMeClickHandler}>
+                    {this.props.movie.title}
+                </h2>
                 <span>
                     <button onClick={this.synopsisClickHandler}>synopsis</button>
                     {this.state.clicked ? <p>{this.props.movie.synopsis}</p> : null}
