@@ -10,7 +10,7 @@ class MovieCard extends React.Component{
         this.props.clickHandler(this.props.movie)
     }
 
-    renderSynopsis = () => {
+    synopsisClickHandler = () => {
         // console.log("render for synopsis")
         this.setState({ clicked: !this.state.clicked})
     }
