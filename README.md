@@ -13,9 +13,9 @@
 
 <!-- - User can see a list of all movie titles -->
 - User can filter the movie list by title
-- User can click on a `show synopsis` button that renders the movie's synopsis
+<!-- - User can click on a `show synopsis` button that renders the movie's synopsis -->
 - User can click on a `rent movie` button and add that movie to their `Rented Movies` list
-- User can see all of their rented movies
+<!-- - User can see all of their rented movies -->
 - User can only rent up to 3 movies at a time
 <!-- - User can return a movie, removing it from their list of rented movies -->
 - User can add a new movie to the movie list (this should persist on page refresh)
@@ -23,3 +23,10 @@
 ## To Be Considered
 
 - You are not given any pre-written components or wireframes. Make any decision you feel is best to make the app work
+
+
+## Still Needs Work
+- button for renting a movie
+- filter movies by title
+- only allow 3 movies to be rented at a time
+- add a new movie to the movie list
