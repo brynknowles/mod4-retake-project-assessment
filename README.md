@@ -11,13 +11,13 @@
 
 ## Deliverables
 
-- User can see a list of all movie titles
+<!-- - User can see a list of all movie titles -->
 - User can filter the movie list by title
 - User can click on a `show synopsis` button that renders the movie's synopsis
 - User can click on a `rent movie` button and add that movie to their `Rented Movies` list
 - User can see all of their rented movies
 - User can only rent up to 3 movies at a time
-- User can return a movie, removing it from their list of rented movies
+<!-- - User can return a movie, removing it from their list of rented movies -->
 - User can add a new movie to the movie list (this should persist on page refresh)
 
 ## To Be Considered
