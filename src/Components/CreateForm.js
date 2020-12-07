@@ -17,6 +17,10 @@ class CreateForm extends React.Component {
     localSubmitHandler = (e) => {
         e.preventDefault()
         this.props.submitHandler(this.state)
+        this.setState({ 
+            title: "",
+            synopsis: ""
+        })
     }
 
     render() {
@@ -37,18 +41,31 @@ export default CreateForm
 // PART 1
 
 // id, title, synopsis
+
 // the application controls the value for the input in a controlled form, not the user
+
 // drop downs, checkbox, radio buttons need to be controlled
+
 // control the value, but let it be dynamically updated as the user inputs info in the field
+
 // the DOM needs to listen to the change, but not be responsible for rendering the experience for the user
+
 // tell the DOM to listen for when a user makes a change to the input, but then pass that information to the app. the app will then take that information and store it in state so that the app remembers what the user has typed in, and then the app will manually update the value based on what's happening in state.
+
 // if you're grabbing an onChange then you're telling it to listen for a change, and any time the change happens, it will send you that event and you will be able to grab the data
+
 // inside of the state, we want a key to represent each input. if a user is typing in text, update the key value in state so that we can update the value in the app
+
 // then tell your application that in order to get the value for those keys, take a look at state and grab whatever the value is in the matching key.
+
 // create a change handler function to listen for a change, don't forget to add e.preventDefault(). find the key in state that should be changed and re-render the component
+
 // add an onChange attribute to the form input
+
 // now, whenever a user makes a change in our DOM, we need a way for our App to connect to the DOM to speak to it and ask it to give it the event to be able to see what the user is typing in. We need to pass in the event as an argument of the event to our event listener (changeHandler), and then target the name keyword so we know which input the event is happening in. so, e.target.name
+
 // by giving our inputs the name attribute, we are now able to determine which of our inputs are being changed, and then what the user is actually typing into that input (e.target.value)
+
 // now we grab the value that the user is typing in, and update the value in state to make it dynamic, use ES6 syntax and tell it to look at the target name, because the names line up with the actual keys inside of our state, and set it equal to e.target.value. this.setState({ [e.target.name]: e.target.value}). React will actually concatenate the string for us, so instead of replacing the string each time, it will remember what the last input was and it will just keep adding onto that string
 
 // each input doesn't have to have its own onChange function, you can make an if else conditional inside of the changeHandler or a switch rather than multiple functions
@@ -78,3 +95,16 @@ export default CreateForm
 // HOWEVER, instead of doing it inline, create a localSubmitHandler helper function -- this helper function still passes in the event so it needs to take in the event, but it is a property on the instance of createForm, we can just use this.state 
 
 // a refactor would be to call e.preventDefault in the localSubmitHandler function instead of in App.js submitHandler function
+
+// PART 7 
+// prevent the user from entering the same data
+// in the local submit handler, set the state with empty strings for each input
+
+// what's happening in local submit handler:
+// prevent default
+// call the submit handler from our props
+// pass in our object
+// set state on the create form component and change the value of each of the input keys to an empty string.
+
+////////////////////////////////
+
