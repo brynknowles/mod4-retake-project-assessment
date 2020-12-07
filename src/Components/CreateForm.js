@@ -94,10 +94,10 @@ export default CreateForm
 
 // HOWEVER, instead of doing it inline, create a localSubmitHandler helper function -- this helper function still passes in the event so it needs to take in the event, but it is a property on the instance of createForm, we can just use this.state 
 
-// a refactor would be to call e.preventDefault in the localSubmitHandler function instead of in App.js submitHandler function
+// a refactor would be to call e.preventDefault (so our DOM doesn't refresh) in the localSubmitHandler function instead of in App.js submitHandler function
 
 // PART 7 
-// prevent the user from entering the same data
+// to clear the form after a user submits the data:
 // in the local submit handler, set the state with empty strings for each input
 
 // what's happening in local submit handler:

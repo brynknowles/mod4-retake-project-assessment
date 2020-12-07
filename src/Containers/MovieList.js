@@ -6,7 +6,7 @@ class MovieList extends React.Component {
     renderMovieList = () => {
         return this.props.movieArray.map(movieObj => <MovieCard key={movieObj.id} movie={movieObj} clickHandler={this.props.clickHandler}/>)
     }
-    
+
     render() {
         return (
             <div className="header">

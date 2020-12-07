@@ -3,12 +3,14 @@ import React from 'react'
 import MovieList from './Containers/MovieList'
 import RentedMovies from './Containers/RentedMovies'
 import CreateForm from './Components/CreateForm'
+import SearchForm from './Components/SearchForm'
 
 class App extends React.Component{
 
   state = {
     api: [],
-    rentedFlicks: []
+    rentedFlicks: [],
+    searchValue: ""
   }
 
   componentDidMount() {
@@ -16,6 +18,11 @@ class App extends React.Component{
     .then(response => response.json())
     // .then(data => console.log(data))
     .then(data => {this.setState({ api: data})})
+  }
+
+  searchedMoviesArray = () => {
+    let filteredArray = this.state.api.filter(movieObj => movieObj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+    return filteredArray
   }
 
   rentMovie = (movie) => {
@@ -37,6 +44,11 @@ class App extends React.Component{
     // add the movieObj to the current api in state
     this.setState({ api: [...this.state.api, movieObj]})
   }
+
+  searchChangeHandler = (e) => {
+    this.setState({ searchValue: e.target.value})
+  }
+
   // delete(item){
   //   const data = this.state.data.filter(i => i.id !== item.id)
   //   this.setState({data})
@@ -51,13 +63,17 @@ class App extends React.Component{
     return (
       <div className="App">
         <div className="form">
-          <CreateForm submitHandler={this.submitHandler}/>
+          <CreateForm submitHandler={this.submitHandler} />
+        </div>
+        <div className="form">
+          <SearchForm searchValue={this.state.searchValue} changeHandler={this.searchChangeHandler}/>
         </div>
         <div className="movie-list-container">
-          <MovieList movieArray={this.state.api} clickHandler={this.rentMovie}/>
+          {/* <MovieList movieArray={this.state.api} clickHandler={this.rentMovie} /> */}
+          <MovieList movieArray={this.searchedMoviesArray()} clickHandler={this.rentMovie} />
         </div>
         <div className="rented-movies-container">
-          <RentedMovies movieArray={this.filteredMovies()} clickHandler={this.returnMovie}/>
+          <RentedMovies movieArray={this.filteredMovies()} clickHandler={this.returnMovie} />
         </div>
       </div>
     )
